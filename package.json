@@ -1,5 +1,5 @@
 {
-  "name": "DGA-API",
+  "name": "dga-api",
   "version": "1.0.0",
   "description": "API til den svendeprøve opgaven, Den Grønne Avis",
   "main": "index.js",
