@@ -10,6 +10,7 @@ import { categoryModel } from "../models/categoryModel.js";
 import { userModel } from "../models/userModel.js";
 import { Authorize, getUserFromToken } from "../utils/authUtils.js";
 import { favoriteModel } from "../models/favoriteModel.js";
+import { commentModel } from "../models/commentModel.js";
 
 export const productController = express.Router();
 
@@ -38,6 +39,15 @@ productController.get(`/${url}`, async (req, res) => {
           model: userModel,
           as: "user",
           attributes: ["firstName", "lastName", "email"],
+        },
+        {
+          model: commentModel,
+          as: "comments",
+          include: {
+            model: userModel,
+            as: "user",
+            attributes: ["firstname", "lastname", "id"],
+          },
         },
       ],
     });
@@ -74,6 +84,10 @@ productController.get(`/${url}/:slug`, async (req, res) => {
           model: userModel,
           as: "user",
           attributes: ["firstName", "lastName", "email"],
+        },
+        {
+          model: commentModel,
+          as: "comments",
         },
       ],
     });
