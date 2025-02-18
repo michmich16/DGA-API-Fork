@@ -21,13 +21,19 @@ userController.get(`/${url}`, Authorize, async (req, res) => {
       attributes: ["firstname", "lastname", "email", "id"],
       //order: getQueryOrder(req.query),
       where: { id: user_id },
-      include: {
-        model: favoriteModel,
-        // Bruger aliaset 'favorites' som defineret i relationsopsætningen
-        as: "favorites",
-        // Begrænser felter fra favoriteModel
-        attributes: ["product_id"],
-      },
+      include: [
+        {
+          model: favoriteModel,
+          // Bruger aliaset 'favorites' som defineret i relationsopsætningen
+          as: "favorites",
+          // Begrænser felter fra favoriteModel
+          attributes: ["product_id"],
+        },
+        {
+          model: productModel,
+          as: "products",
+        },
+      ],
     });
 
     if (!details) return errorResponse(res, `User not found`, 404);

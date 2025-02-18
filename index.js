@@ -6,6 +6,7 @@ import { authController } from "./controllers/authController.js";
 import { productController } from "./controllers/productController.js";
 import { categoryController } from "./controllers/categoryController.js";
 import { setRelations } from "./models/relations.js";
+import { favoriteController } from "./controllers/favoriteController.js";
 
 // Express Route Settings
 const app = express();
@@ -25,6 +26,7 @@ app.get("/", (req, res) => {
 app.use(
   productController,
   categoryController,
+  favoriteController,
   userController,
   authController,
   dbController

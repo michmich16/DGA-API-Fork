@@ -19,16 +19,8 @@ categoryModel.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    description: {
-      type: DataTypes.TEXT,
-      allowNull: false,
-    },
     slug: {
       type: DataTypes.TEXT,
-      allowNull: false,
-    },
-    is_active: {
-      type: DataTypes.BOOLEAN,
       allowNull: false,
     },
   },

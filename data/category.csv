@@ -1,11 +1,14 @@
-id,name,description,slug,is_active
-1,Category 1,This is a description for Category 1.,category-1,true
-2,Category 2,This is a description for Category 2.,category-2,false
-3,Category 3,This is a description for Category 3.,category-3,false
-4,Category 4,This is a description for Category 4.,category-4,false
-5,Category 5,This is a description for Category 5.,category-5,true
-6,Category 6,This is a description for Category 6.,category-6,true
-7,Category 7,This is a description for Category 7.,category-7,true
-8,Category 8,This is a description for Category 8.,category-8,true
-9,Category 9,This is a description for Category 9.,category-9,true
-10,Category 10,This is a description for Category 10.,category-10,false
+id,name,slug,is_active
+1,Camping,camping
+2,Elektronik,elektronik
+3,Have og byg,have-og-byg
+4,Tøj og mode,toej-og-mode
+5,Cykler,cykler
+6,Biler,biler
+7,Hobby,hobby
+8,Mobil og telefoni,mobil-og-telefoni
+9,Musik instrumenter,musik-instrumenter
+10,Billede og lyd,billede-og-lyd
+11,Scootere og knallerter,scootere-og-knallerter
+12,Bøger og blade,boeger-og-blade
+13,Diverse,diverse

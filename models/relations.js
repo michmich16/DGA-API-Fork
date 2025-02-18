@@ -21,4 +21,14 @@ export const setRelations = () => {
   // User / Product relation
   productModel.belongsTo(userModel, { foreignKey: "user_id", as: "user" });
   userModel.hasMany(productModel, { foreignKey: "user_id", as: "products" });
+
+  // Product / favorite relation
+  productModel.hasMany(favoriteModel, {
+    foreignKey: "product_id",
+    as: "favorites",
+  });
+  favoriteModel.belongsTo(productModel, {
+    foreignKey: "product_id",
+    as: "product",
+  });
 };
