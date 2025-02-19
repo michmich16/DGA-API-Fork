@@ -1,21 +1,21 @@
 id,name,image,description,price,slug,category_id,user_id
-1,Telt,https://via.placeholder.com/150,Perfekt til campingturen,1200,telt,1,1
-2,Lommelygte,https://via.placeholder.com/150,Kraftig LED-lommelygte til naturoplevelser,250,lommelygte,1,2
-3,Bærbar computer,https://via.placeholder.com/150,Kraftfuld laptop til arbejde og gaming,7500,baerbar-computer,2,1
-4,Hovedtelefoner,https://via.placeholder.com/150,Trådløse støjreducerende hovedtelefoner,1200,hovedtelefoner,2,1
-5,Plæneklipper,https://via.placeholder.com/150,Elektrisk plæneklipper til havearbejde,2500,plaeneklipper,3,2
-6,Skruemaskine,https://via.placeholder.com/150,Batteridrevet skruemaskine til gør-det-selv-projekter,900,skruemaskine,3,2
-7,Jakke,https://via.placeholder.com/150,Vindtæt og vandafvisende jakke,800,jakke,4,1
-8,Løbesko,https://via.placeholder.com/150,Komfortable løbesko til træning,600,loebesko,4,2
-9,Mountainbike,https://via.placeholder.com/150,Robust mountainbike til skovstier,4500,mountainbike,5,2
-10,Cykelhjelm,https://via.placeholder.com/150,Sikker og stilfuld cykelhjelm,400,cykelhjelm,5,1
-11,Brugt bil,https://via.placeholder.com/150,Velholdt brugt bil med lavt kilometertal,85000,brugt-bil,6,1
-12,Vinterdæk,https://via.placeholder.com/150,Sæt af fire vinterdæk i god stand,3500,vinterdaek,6,1
-13,Modeltog,https://via.placeholder.com/150,Klassisk modeltog i skala 1:87,1200,modeltog,7,2
-14,Maling og lærred,https://via.placeholder.com/150,Sæt til kunstmaleri med pensler og lærreder,700,maling-og-laerred,7,2
-15,iPhone 12,https://via.placeholder.com/150,Brugt iPhone 12 med original emballage,4500,iphone-12,8,2
-16,Trådløs oplader,https://via.placeholder.com/150,Hurtigopladende trådløs oplader,300,traadloes-oplader,8,1
-17,Guitar,https://via.placeholder.com/150,Akustisk guitar i høj kvalitet,2200,guitar,9,1
-18,Trommesæt,https://via.placeholder.com/150,Komplet trommesæt med bækkener,8500,trommesaet,9,2
-19,Fladskærms-TV,https://via.placeholder.com/150,55 Smart TV med 4K opløsning,6000,fladskaerms-tv,10,1
-20,Surround sound system,https://via.placeholder.com/150,Hjemmebiograf lydsystem med subwoofer,4500,surround-sound-system,10,2
+1,Telt,https://images.pexels.com/photos/2376989/pexels-photo-2376989.jpeg?auto=compress&cs=tinysrgb&w=1200,Perfekt til campingturen,1200,telt,1,1
+2,Lommelygte,https://images.pexels.com/photos/733087/pexels-photo-733087.jpeg?auto=compress&cs=tinysrgb&w=1200,Kraftig LED-lommelygte til naturoplevelser,250,lommelygte,1,2
+3,Bærbar computer,https://images.pexels.com/photos/40185/mac-freelancer-macintosh-macbook-40185.jpeg?auto=compress&cs=tinysrgb&w=1200,Kraftfuld laptop til arbejde og gaming,7500,baerbar-computer,2,1
+4,Hovedtelefoner,https://images.pexels.com/photos/377711/pexels-photo-377711.jpeg?auto=compress&cs=tinysrgb&w=1200,Trådløse støjreducerende hovedtelefoner,1200,hovedtelefoner,2,1
+5,Plæneklipper,https://images.pexels.com/photos/4162011/pexels-photo-4162011.jpeg?auto=compress&cs=tinysrgb&w=1200,Elektrisk plæneklipper til havearbejde,2500,plaeneklipper,3,2
+6,Skruemaskine,https://images.pexels.com/photos/8821015/pexels-photo-8821015.jpeg?auto=compress&cs=tinysrgb&w=1200,Batteridrevet skruemaskine til gør-det-selv-projekter,900,skruemaskine,3,2
+7,Jakke,https://images.pexels.com/photos/10548744/pexels-photo-10548744.jpeg?auto=compress&cs=tinysrgb&w=1200,Vindtæt og vandafvisende jakke,800,jakke,4,1
+8,Løbesko,https://images.pexels.com/photos/1599005/pexels-photo-1599005.jpeg?auto=compress&cs=tinysrgb&w=1200,Komfortable løbesko til træning,600,loebesko,4,2
+9,Mountainbike,https://images.pexels.com/photos/100582/pexels-photo-100582.jpeg?auto=compress&cs=tinysrgb&w=1200,Robust mountainbike til skovstier,4500,mountainbike,5,2
+10,Cykelhjelm,https://images.pexels.com/photos/8926943/pexels-photo-8926943.jpeg?auto=compress&cs=tinysrgb&w=1200,Sikker og stilfuld cykelhjelm,400,cykelhjelm,5,1
+11,Brugt bil,https://images.pexels.com/photos/2116156/pexels-photo-2116156.jpeg?auto=compress&cs=tinysrgb&w=1200,Velholdt brugt bil med lavt kilometertal,85000,brugt-bil,6,1
+12,Vinterdæk,https://images.pexels.com/photos/3806252/pexels-photo-3806252.jpeg?auto=compress&cs=tinysrgb&w=1200,Sæt af fire vinterdæk i god stand,3500,vinterdaek,6,1
+13,Modeltog,https://images.pexels.com/photos/287720/pexels-photo-287720.jpeg?auto=compress&cs=tinysrgb&w=1200,Klassisk modeltog i skala 1:87,1200,modeltog,7,2
+14,Maling og lærred,https://images.pexels.com/photos/4406715/pexels-photo-4406715.jpeg?auto=compress&cs=tinysrgb&w=1200,Sæt til kunstmaleri med pensler og lærreder,700,maling-og-laerred,7,2
+15,iPhone 12,https://images.pexels.com/photos/6608247/pexels-photo-6608247.jpeg?auto=compress&cs=tinysrgb&w=1200,Brugt iPhone 12 med original emballage,4500,iphone-12,8,2
+16,Trådløs oplader,https://images.pexels.com/photos/7742585/pexels-photo-7742585.jpeg?auto=compress&cs=tinysrgb&w=1200,Hurtigopladende trådløs oplader,300,traadloes-oplader,8,1
+17,Guitar,https://images.pexels.com/photos/3428498/pexels-photo-3428498.jpeg?auto=compress&cs=tinysrgb&w=1200,Akustisk guitar i høj kvalitet,2200,guitar,9,1
+18,Trommesæt,https://images.pexels.com/photos/4087992/pexels-photo-4087992.jpeg?auto=compress&cs=tinysrgb&w=1200,Komplet trommesæt med bækkener,8500,trommesaet,9,2
+19,Fladskærms-TV,https://images.pexels.com/photos/10078142/pexels-photo-10078142.jpeg?auto=compress&cs=tinysrgb&w=1200,55 Smart TV med 4K opløsning,6000,fladskaerms-tv,10,1
+20,Surround sound system,https://images.pexels.com/photos/19482598/pexels-photo-19482598/free-photo-of-old-stereo-in-a-living-room.jpeg?auto=compress&cs=tinysrgb&w=1200,Hjemmebiograf lydsystem med subwoofer,4500,surround-sound-system,10,2

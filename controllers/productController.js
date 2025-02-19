@@ -9,7 +9,6 @@ import {
 import { categoryModel } from "../models/categoryModel.js";
 import { userModel } from "../models/userModel.js";
 import { Authorize, getUserFromToken } from "../utils/authUtils.js";
-import { favoriteModel } from "../models/favoriteModel.js";
 import { commentModel } from "../models/commentModel.js";
 
 export const productController = express.Router();
@@ -21,8 +20,6 @@ const url = "products";
 productController.get(`/${url}`, async (req, res) => {
   try {
     const list = await model.findAll({
-      //attributes: ["name", "price"],
-      //attributes: getQueryAttributes(req.query, "name, price"),
       // Begrænser antal records
       limit: getQueryLimit(req.query),
       // Sorterer resultat stigende efter felt
@@ -40,15 +37,6 @@ productController.get(`/${url}`, async (req, res) => {
           as: "user",
           attributes: ["firstName", "lastName", "email"],
         },
-        /* {
-          model: commentModel,
-          as: "comments",
-          include: {
-            model: userModel,
-            as: "user",
-            attributes: ["firstname", "lastname", "id"],
-          },
-        }, */
       ],
     });
     if (!list || list.length === 0) {
@@ -63,15 +51,16 @@ productController.get(`/${url}`, async (req, res) => {
 productController.get(`/${url}/category/:slug`, async (req, res) => {
   try {
     const { slug } = req.params;
+    const category = await categoryModel.findOne({ where: { slug: slug } });
     const list = await model.findAll({
-      where: { category_id: slug },
+      where: { category_id: category.id },
       limit: getQueryLimit(req.query),
       order: getQueryOrder(req.query),
     });
     if (!list || list.length === 0) {
       return errorResponse(res, `No records found`, 404);
     }
-    successResponse(res, list); // Returnerer succesrespons med listen
+    successResponse(res, list, { category: category.name }); // Returnerer succesrespons med listen
   } catch (error) {
     errorResponse(res, `Error fetching records: ${error.message}`); // Håndterer fejl
   }
@@ -126,6 +115,7 @@ productController.post(`/${url}`, Authorize, async (req, res) => {
     const data = req.body;
     // Hent user id fra token
     const user_id = await getUserFromToken(req, res);
+
     // Sætter user id
     data.user_id = user_id;
     // Opretter slug ud fra titel
@@ -142,24 +132,30 @@ productController.post(`/${url}`, Authorize, async (req, res) => {
 /**
  * Update product
  */
-productController.put(`/${url}`, Authorize, async (req, res) => {
+productController.put(`/${url}/:id`, Authorize, async (req, res) => {
   try {
     // Læser ID fra TOKEN
     const user_id = await getUserFromToken(req, res);
     // Henter data fra request body
     const data = req.body;
+    // Hent product id fra params
+    const { id } = req.params;
     // Sætter user id på data
     data.user_id = user_id;
     // Opdater slug til det nye navn
     data.slug = data.name.replace(" ", "-").toLowerCase();
     // Opdaterer record
     const [updated] = await model.update(data, {
-      where: { id: data.id, user_id: user_id },
+      where: { id: id, user_id: user_id },
       individualHooks: true, // Åbner for hooks i modellen
     });
     // Fejl hvis ingen record findes
     if (!updated)
-      return errorResponse(res, `No product found with ID: ${id}`, 404);
+      return errorResponse(
+        res,
+        `No product found with ID: ${id}. Make sure you are updating a product that belongs to you`,
+        404
+      );
     // Returnerer succesrespons
     successResponse(res, { user_id, ...data }, `Product updated successfully`);
   } catch (error) {
@@ -170,21 +166,27 @@ productController.put(`/${url}`, Authorize, async (req, res) => {
 /**
  * Delete a product from id
  */
-productController.delete(`/${url}`, Authorize, async (req, res) => {
+productController.delete(`/${url}/:id`, Authorize, async (req, res) => {
   try {
     // Hent data fra body
     const data = req.body;
+
+    // Hent product id fra params
+    const { id } = req.params;
+
     // Hent user_id fra Token
     const user_id = await getUserFromToken(req, res);
-    // Delete favorites attached to product and user
-    const deletedFavorites = await favoriteModel.destroy({
-      where: { product_id: data.id },
+
+    // Delete comments that belong to user
+    const deletedComments = await commentModel.destroy({
+      where: { product_id: id },
     });
+
     // Delete product
     const deletedProduct = await model.destroy({
-      where: { id: data.id, user_id: user_id },
+      where: { id: id, user_id: user_id },
     });
-    if (!deletedFavorites || !deletedProduct) {
+    if (!deletedProduct || !deletedComments) {
       return errorResponse(
         res,
         `Could not delete product. Make sure you are deleting a product that belongs to you`,

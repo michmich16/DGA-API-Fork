@@ -5,7 +5,6 @@ import { userModel } from "../models/userModel.js";
 import { productModel } from "../models/productModel.js";
 import { categoryModel } from "../models/categoryModel.js";
 import { errorResponse, successResponse } from "../utils/responseUtils.js";
-import { favoriteModel } from "../models/favoriteModel.js";
 import { commentModel } from "../models/commentModel.js";
 
 export const dbController = express.Router();
@@ -44,7 +43,6 @@ dbController.get("/seedfromcsv", async (req, res) => {
       { file: "category.csv", model: categoryModel },
       { file: "product.csv", model: productModel },
       { file: "comment.csv", model: commentModel },
-      { file: "favorite.csv", model: favoriteModel },
     ];
     // Array til svar
     const files_seeded = [];

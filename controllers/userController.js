@@ -1,10 +1,10 @@
 import express from "express";
-import { userModel as model } from "../models/userModel.js";
+import { userModel as model, userModel } from "../models/userModel.js";
 import { errorResponse, successResponse } from "../utils/responseUtils.js";
 import { Authorize, getUserFromToken } from "../utils/authUtils.js";
-import { favoriteModel } from "../models/favoriteModel.js";
 import { getQueryAttributes, getQueryOrder } from "../utils/apiUtils.js";
 import { productModel } from "../models/productModel.js";
+import { commentModel } from "../models/commentModel.js";
 
 export const userController = express.Router();
 const url = "users";
@@ -18,17 +18,20 @@ userController.get(`/${url}`, Authorize, async (req, res) => {
     const user_id = await getUserFromToken(req, res);
 
     let details = await model.findOne({
-      attributes: ["firstname", "lastname", "email", "id"],
+      attributes: [
+        "firstname",
+        "lastname",
+        "email",
+        "address",
+        "zipcode",
+        "city",
+        "hasNewsletter",
+        "hasNotification",
+        "id",
+      ],
       //order: getQueryOrder(req.query),
       where: { id: user_id },
       include: [
-        {
-          model: favoriteModel,
-          // Bruger aliaset 'favorites' som defineret i relationsopsætningen
-          as: "favorites",
-          // Begrænser felter fra favoriteModel
-          attributes: ["product_id"],
-        },
         {
           model: productModel,
           as: "products",
@@ -65,6 +68,9 @@ userController.post(`/${url}`, async (req, res) => {
           firstName: result.firstname,
           lastName: result.lastname,
           email: result.email,
+          address: result.address,
+          city: result.city,
+          zipcode: result.zipcode,
           id: result.id,
         },
         `User created successfully`,
@@ -111,17 +117,31 @@ userController.delete(`/${url}`, Authorize, async (req, res) => {
     // Læser ID fra TOKEN
     const user_id = await getUserFromToken(req, res);
 
-    // Delete sequence
-    const deletedFavorites = await favoriteModel.destroy({
+    // Delete related data sequence
+    /* const deletedComments = await commentModel.destroy({
       where: { user_id: user_id },
     });
     const deletedProducts = await productModel.destroy({
       where: { user_id: user_id },
+    }); */
+    const deletedUser = await model.destroy({
+      where: { id: user_id },
+      include: [
+        {
+          model: commentModel,
+          as: "comments",
+        },
+        {
+          model: productModel,
+          as: "products",
+        },
+      ],
     });
-    const deletedUser = await model.destroy({ where: { id: user_id } });
 
-    // Check if user, products and favorites are deleted
-    if (!deletedUser || !deletedProducts || !deletedFavorites)
+    console.log(deletedUser);
+
+    // Check if user, products and comments are deleted
+    if (!deletedUser || !deletedComments || !deletedProducts)
       return errorResponse(res, `No user found with ID: ${user_id}`, 404);
 
     successResponse(

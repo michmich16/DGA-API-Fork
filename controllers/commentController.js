@@ -17,7 +17,7 @@ commentController.get(`/${url}/:id`, Authorize, async (req, res) => {
     const { id } = req.params;
     const product_id = parseInt(id);
 
-    // Hent alle favorites fra brugeren og inkluder produkt detaljer for hver favorit
+    // Hent alle comments for produktet
     const comments = await model.findAll({
       where: { product_id: product_id },
       include: {
@@ -35,28 +35,31 @@ commentController.get(`/${url}/:id`, Authorize, async (req, res) => {
     });
     successResponse(res, comments, "Success", 200);
   } catch (error) {
-    return errorResponse(res, `Error fetching favorites: ${error}`, 500);
+    return errorResponse(res, `Error fetching comments: ${error}`, 500);
   }
 });
 
-commentController.post(`/${url}`, Authorize, async (req, res) => {
+commentController.post(`/${url}/:id`, Authorize, async (req, res) => {
   try {
     const data = req.body;
+    // Hent product id fra params
+    const { id } = req.params;
     // Hent user id fra token
     const user_id = await getUserFromToken(req, res);
     // Append product id and user id to comment data
     data.user_id = user_id;
+    data.product_id = id;
 
     // Opretter en ny record
     const comment = await model.create(data);
     successResponse(
       res,
       comment,
-      `comment added to product with id: ${data.product_id}`,
+      `comment added to product with id: ${id}`,
       200
     );
   } catch (error) {
-    return errorResponse(res, `Error adding favorite: ${error}`, 500);
+    return errorResponse(res, `Error adding comment: ${error}`, 500);
   }
 });
 
@@ -68,7 +71,7 @@ commentController.delete(`/${url}/:id`, Authorize, async (req, res) => {
     const comment_id = parseInt(id);
     // Hent user id fra token
     const user_id = await getUserFromToken(req, res);
-    // Delete favorite
+    // Delete comment
     await model.destroy({
       where: { id: comment_id, user_id: user_id },
     });
@@ -79,6 +82,6 @@ commentController.delete(`/${url}/:id`, Authorize, async (req, res) => {
       200
     );
   } catch (error) {
-    return errorResponse(res, `Error deleting favorite: ${error}`, 500);
+    return errorResponse(res, `Error deleting comment: ${error}`, 500);
   }
 });

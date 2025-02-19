@@ -40,6 +40,16 @@ userModel.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    hasNewsletter: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false,
+    },
+    hasNotification: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false,
+    },
     refresh_token: {
       type: DataTypes.STRING,
       allowNull: false,

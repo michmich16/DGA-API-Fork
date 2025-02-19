@@ -6,7 +6,6 @@ import { authController } from "./controllers/authController.js";
 import { productController } from "./controllers/productController.js";
 import { categoryController } from "./controllers/categoryController.js";
 import { setRelations } from "./models/relations.js";
-import { favoriteController } from "./controllers/favoriteController.js";
 import { commentController } from "./controllers/commentController.js";
 
 // Express Route Settings
@@ -28,7 +27,6 @@ app.use(
   productController,
   categoryController,
   commentController,
-  favoriteController,
   userController,
   authController,
   dbController

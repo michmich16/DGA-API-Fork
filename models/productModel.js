@@ -55,8 +55,5 @@ productModel.init(
     timestamps: true, // Tilføjer createdAt og updatedAt felter
     underscored: true, // Bruger underscoring i stedet for camelCase i kolonnenavne
     freezeTableName: true, // Forhindrer Sequelize i at ændre tabelnavnet
-    indexes: [
-      { unique: true, fields: ["name"] }, // Sikrer unikke værdier i string_field
-    ],
   }
 );
