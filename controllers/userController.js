@@ -86,7 +86,7 @@ userController.post(`/${url}`, async (req, res) => {
 /**
  * UPDATE: Update an existing record
  */
-userController.put(`/${url}`, Authorize, async (req, res) => {
+userController.patch(`/${url}`, Authorize, async (req, res) => {
   try {
     // Læser ID fra TOKEN
     const user_id = await getUserFromToken(req, res);
@@ -96,8 +96,10 @@ userController.put(`/${url}`, Authorize, async (req, res) => {
 
     const [updated] = await model.update(data, {
       where: { id: user_id },
-      individualHooks: true, // Åbner for hooks i modellen
+      //individualHooks: true, // Åbner for hooks i modellen
     });
+
+    console.log("updated", updated);
     // Fejl hvis ingen record findes
     if (!updated)
       return errorResponse(res, `No user found with ID: ${id}`, 404);

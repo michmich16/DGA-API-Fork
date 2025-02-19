@@ -132,7 +132,7 @@ productController.post(`/${url}`, Authorize, async (req, res) => {
 /**
  * Update product
  */
-productController.put(`/${url}/:id`, Authorize, async (req, res) => {
+productController.patch(`/${url}/:id`, Authorize, async (req, res) => {
   try {
     // Læser ID fra TOKEN
     const user_id = await getUserFromToken(req, res);
