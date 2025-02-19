@@ -40,7 +40,7 @@ productController.get(`/${url}`, async (req, res) => {
           as: "user",
           attributes: ["firstName", "lastName", "email"],
         },
-        {
+        /* {
           model: commentModel,
           as: "comments",
           include: {
@@ -48,7 +48,7 @@ productController.get(`/${url}`, async (req, res) => {
             as: "user",
             attributes: ["firstname", "lastname", "id"],
           },
-        },
+        }, */
       ],
     });
     if (!list || list.length === 0) {
@@ -59,6 +59,24 @@ productController.get(`/${url}`, async (req, res) => {
     errorResponse(res, `Error fetching records: ${error.message}`); // Håndterer fejl
   }
 });
+
+productController.get(`/${url}/category/:slug`, async (req, res) => {
+  try {
+    const { slug } = req.params;
+    const list = await model.findAll({
+      where: { category_id: slug },
+      limit: getQueryLimit(req.query),
+      order: getQueryOrder(req.query),
+    });
+    if (!list || list.length === 0) {
+      return errorResponse(res, `No records found`, 404);
+    }
+    successResponse(res, list); // Returnerer succesrespons med listen
+  } catch (error) {
+    errorResponse(res, `Error fetching records: ${error.message}`); // Håndterer fejl
+  }
+});
+
 /**
  * Get product from product slug
  */

@@ -22,7 +22,7 @@ categoryController.get(`/${url}`, async (req, res) => {
       // Sorterer resultat stigende efter felt
       order: getQueryOrder(req.query),
 
-      include: [
+      /*   include: [
         {
           model: productModel,
           // Bruger aliaset 'products' som defineret i relationsopsætningen
@@ -30,7 +30,7 @@ categoryController.get(`/${url}`, async (req, res) => {
           // Begrænser felter fra productModel
           attributes: ["name", "id"],
         },
-      ],
+      ], */
     });
     if (!list || list.length === 0) {
       return errorResponse(res, `No records found`, 404);

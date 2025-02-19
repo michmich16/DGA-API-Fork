@@ -1,3 +1,3 @@
-"id","firstname","lastname","email","password","refresh_token","is_active"
-1,"Klaus","Bundgaard","info@webudvikler.dk","password","1234",1
-2,"Ignacio","Alvares","admin@webudvikler.dk","password","1234",1
+"id","firstname","lastname","address","zipcode","city","email","password","refresh_token","is_active"
+1,"Klaus","Bundgaard","Stjernepladsen 32","7450","Skuldborg","info@webudvikler.dk","password","1234",1
+2,"Peter","Parker","Jyllingegade 67","9000","Aalborg","admin@webudvikler.dk","password","1234",1

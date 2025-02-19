@@ -1,11 +1,21 @@
 id,name,image,description,price,slug,category_id,user_id
-1,Product 1,https://example.com/images/product1.jpg,This is a description for Product 1.,10,product-1,9,1
-2,Product 2,https://example.com/images/product2.jpg,This is a description for Product 2.,20,product-2,4,1
-3,Product 3,https://example.com/images/product3.jpg,This is a description for Product 3.,30,product-3,2,2
-4,Product 4,https://example.com/images/product4.jpg,This is a description for Product 4.,40,product-4,4,2
-5,Product 5,https://example.com/images/product5.jpg,This is a description for Product 5.,50,product-5,7,2
-6,Product 6,https://example.com/images/product6.jpg,This is a description for Product 6.,60,product-6,5,1
-7,Product 7,https://example.com/images/product7.jpg,This is a description for Product 7.,70,product-7,9,1
-8,Product 8,https://example.com/images/product8.jpg,This is a description for Product 8.,80,product-8,10,1
-9,Product 9,https://example.com/images/product9.jpg,This is a description for Product 9.,90,product-9,2,1
-10,Product 10,https://example.com/images/product10.jpg,This is a description for Product 10.,100,product-10,8,1
+1,Telt,https://via.placeholder.com/150,Perfekt til campingturen,1200,telt,1,1
+2,Lommelygte,https://via.placeholder.com/150,Kraftig LED-lommelygte til naturoplevelser,250,lommelygte,1,2
+3,Bærbar computer,https://via.placeholder.com/150,Kraftfuld laptop til arbejde og gaming,7500,baerbar-computer,2,1
+4,Hovedtelefoner,https://via.placeholder.com/150,Trådløse støjreducerende hovedtelefoner,1200,hovedtelefoner,2,1
+5,Plæneklipper,https://via.placeholder.com/150,Elektrisk plæneklipper til havearbejde,2500,plaeneklipper,3,2
+6,Skruemaskine,https://via.placeholder.com/150,Batteridrevet skruemaskine til gør-det-selv-projekter,900,skruemaskine,3,2
+7,Jakke,https://via.placeholder.com/150,Vindtæt og vandafvisende jakke,800,jakke,4,1
+8,Løbesko,https://via.placeholder.com/150,Komfortable løbesko til træning,600,loebesko,4,2
+9,Mountainbike,https://via.placeholder.com/150,Robust mountainbike til skovstier,4500,mountainbike,5,2
+10,Cykelhjelm,https://via.placeholder.com/150,Sikker og stilfuld cykelhjelm,400,cykelhjelm,5,1
+11,Brugt bil,https://via.placeholder.com/150,Velholdt brugt bil med lavt kilometertal,85000,brugt-bil,6,1
+12,Vinterdæk,https://via.placeholder.com/150,Sæt af fire vinterdæk i god stand,3500,vinterdaek,6,1
+13,Modeltog,https://via.placeholder.com/150,Klassisk modeltog i skala 1:87,1200,modeltog,7,2
+14,Maling og lærred,https://via.placeholder.com/150,Sæt til kunstmaleri med pensler og lærreder,700,maling-og-laerred,7,2
+15,iPhone 12,https://via.placeholder.com/150,Brugt iPhone 12 med original emballage,4500,iphone-12,8,2
+16,Trådløs oplader,https://via.placeholder.com/150,Hurtigopladende trådløs oplader,300,traadloes-oplader,8,1
+17,Guitar,https://via.placeholder.com/150,Akustisk guitar i høj kvalitet,2200,guitar,9,1
+18,Trommesæt,https://via.placeholder.com/150,Komplet trommesæt med bækkener,8500,trommesaet,9,2
+19,Fladskærms-TV,https://via.placeholder.com/150,55 Smart TV med 4K opløsning,6000,fladskaerms-tv,10,1
+20,Surround sound system,https://via.placeholder.com/150,Hjemmebiograf lydsystem med subwoofer,4500,surround-sound-system,10,2
