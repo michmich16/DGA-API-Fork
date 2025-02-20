@@ -44,6 +44,8 @@ efterfulgt af:
 
 `nodemon`
 
+### Seeding
+
 For at fylde databasen op med "default" data kan du åbne din browser eller bruge postman til at navigere til følgende route:
 
 http://localhost:4242/seedfromcsv
