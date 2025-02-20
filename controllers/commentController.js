@@ -9,11 +9,8 @@ export const commentController = express.Router();
 
 const url = "comment";
 
-commentController.get(`/${url}/:id`, Authorize, async (req, res) => {
+commentController.get(`/${url}/:id`, async (req, res) => {
   try {
-    // Hent user id fra token
-    const user_id = await getUserFromToken(req, res);
-
     const { id } = req.params;
     const product_id = parseInt(id);
 
@@ -23,14 +20,7 @@ commentController.get(`/${url}/:id`, Authorize, async (req, res) => {
       include: {
         model: userModel,
         as: "user",
-        attributes: [
-          "firstname",
-          "lastname",
-          "id",
-          "email",
-          "created_at",
-          "updated_at",
-        ],
+        attributes: ["firstname", "lastname", "id", "email"],
       },
     });
     successResponse(res, comments, "Success", 200);
