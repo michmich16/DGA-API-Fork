@@ -9,9 +9,9 @@ import { commentModel } from "../models/commentModel.js";
 export const userController = express.Router();
 const url = "users";
 
-/**
- * READ: Fetch a single record by JWT
- */
+/************************************
+ * READ: Fetch user details by JWT
+ ************************************/
 userController.get(`/${url}`, Authorize, async (req, res) => {
   try {
     // Læser ID fra TOKEN
@@ -47,9 +47,9 @@ userController.get(`/${url}`, Authorize, async (req, res) => {
   }
 });
 
-/**
- * CREATE: Add a new record to the database
- */
+/******************************************
+ * CREATE: Add a new user to the database
+ ******************************************/
 userController.post(`/${url}`, async (req, res) => {
   try {
     // Henter data fra request body
@@ -83,9 +83,9 @@ userController.post(`/${url}`, async (req, res) => {
   }
 });
 
-/**
- * UPDATE: Update an existing record
- */
+/************************************
+ * UPDATE: Update an existing user
+ ************************************/
 userController.patch(`/${url}`, Authorize, async (req, res) => {
   try {
     // Læser ID fra TOKEN
@@ -111,39 +111,21 @@ userController.patch(`/${url}`, Authorize, async (req, res) => {
   }
 });
 
-/**
- * DELETE: Remove a record by ID
- */
+/*******************************
+ * DELETE: Remove a user by JWT
+ *******************************/
 userController.delete(`/${url}`, Authorize, async (req, res) => {
   try {
     // Læser ID fra TOKEN
     const user_id = await getUserFromToken(req, res);
 
     // Delete related data sequence
-    /* const deletedComments = await commentModel.destroy({
-      where: { user_id: user_id },
-    });
-    const deletedProducts = await productModel.destroy({
-      where: { user_id: user_id },
-    }); */
     const deletedUser = await model.destroy({
       where: { id: user_id },
-      include: [
-        {
-          model: commentModel,
-          as: "comments",
-        },
-        {
-          model: productModel,
-          as: "products",
-        },
-      ],
     });
 
-    console.log(deletedUser);
-
     // Check if user, products and comments are deleted
-    if (!deletedUser || !deletedComments || !deletedProducts)
+    if (!deletedUser)
       return errorResponse(res, `No user found with ID: ${user_id}`, 404);
 
     successResponse(

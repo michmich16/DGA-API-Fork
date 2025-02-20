@@ -1,6 +1,5 @@
 import sequelize from "../config/sequelizeConfig.js";
 import { DataTypes, Model } from "sequelize";
-import { productModel } from "./productModel.js";
 
 // Definerer en klasse, der udvider Sequelize's Model-klasse
 export class categoryModel extends Model {}

@@ -15,20 +15,38 @@ export const setRelations = () => {
   });
 
   // User / Product relation
-  productModel.belongsTo(userModel, { foreignKey: "user_id", as: "user" });
-  userModel.hasMany(productModel, { foreignKey: "user_id", as: "products" });
+  productModel.belongsTo(userModel, {
+    foreignKey: "user_id",
+    as: "user",
+    onDelete: "CASCADE",
+  });
+  userModel.hasMany(productModel, {
+    foreignKey: "user_id",
+    as: "products",
+    onDelete: "CASCADE",
+  });
 
   // Comment / User relation
-  commentModel.belongsTo(userModel, { foreignKey: "user_id", as: "user" });
-  userModel.hasMany(commentModel, { foreignKey: "user_id", as: "comments" });
+  commentModel.belongsTo(userModel, {
+    foreignKey: "user_id",
+    as: "user",
+    onDelete: "CASCADE",
+  });
+  userModel.hasMany(commentModel, {
+    foreignKey: "user_id",
+    as: "comments",
+    onDelete: "CASCADE",
+  });
 
   // Comment / product relation
   commentModel.belongsTo(productModel, {
     foreignKey: "product_id",
     as: "product",
+    onDelete: "CASCADE",
   });
   productModel.hasMany(commentModel, {
     foreignKey: "product_id",
     as: "comments",
+    onDelete: "CASCADE",
   });
 };

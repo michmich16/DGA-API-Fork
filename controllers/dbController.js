@@ -19,7 +19,7 @@ dbController.get("/test", async (req, res) => {
   }
 });
 
-// Synchronize database tables
+// Synkroniser database tables
 dbController.get("/sync", async (req, res) => {
   try {
     const forceSync = req.query.force === "true";
@@ -34,7 +34,7 @@ dbController.get("/sync", async (req, res) => {
   }
 });
 
-// Seed database from CSV files
+// Seed database fra CSV files
 dbController.get("/seedfromcsv", async (req, res) => {
   try {
     // Array med seed filer og models
