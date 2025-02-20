@@ -40,7 +40,8 @@ Når du har oprettet og ændret i din .env fil åbner du en ny terminal og navig
 
 `npm install`
 
-og for at starte api´et:
+efterfulgt af:
+
 `nodemon`
 
 For at fylde databasen op med "default" data kan du åbne din browser eller bruge postman til at navigere til følgende route:
@@ -48,3 +49,8 @@ For at fylde databasen op med "default" data kan du åbne din browser eller brug
 http://localhost:4242/seedfromcsv
 
 Nu skulle du gerne modtage en "seeding complete" besked og du kan gå i gang med at bruge API´et.
+
+## API Dokumentation
+
+Dokumentationen til API´et kan findes på følgende addresse:
+**LINK TIL API DOCS**
