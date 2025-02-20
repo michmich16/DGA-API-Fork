@@ -55,4 +55,5 @@ Nu skulle du gerne modtage en "seeding complete" besked og du kan gå i gang med
 ## API Dokumentation
 
 Dokumentationen til API´et kan findes på følgende addresse:
-**LINK TIL API DOCS**
+
+https://documenter.getpostman.com/view/31531123/2sAYdbND6z
