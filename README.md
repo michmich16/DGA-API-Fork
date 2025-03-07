@@ -13,7 +13,21 @@ For at starte API´et skal det først hentes ned. Start derfor med at klone API�
 
 Api´et kræver at du har sat en database op i MySQL. Åben derfor det program du bruger til at styre MySQL. Her skal du oprette en ny database med følgende navn: **DGA**
 
-### Node.js setup
+## Node.js setup
+
+### Node version
+
+Dette api kræver at du henter den seneste version af Node JS.
+Du kan altid tjekke hvilken version af node du kører med:
+
+```
+node -v
+```
+
+Hvis ikke du allerede har den seneste version af Node kan denne hentes her:
+[Link til Node JS download](https://nodejs.org/en/download)
+
+### OPSÆT ENV FIL
 
 Før du kan starte api´et skal du have hentet alle node-modules. Når du har hentet api´et navigerer du til rod mappen og opretter en ny .env fil.
 Det er vigtigt at .env filen ligger i roden. Det vil sige; ved siden af index.js filen. Denne .env fil skal indeholde følgende:
