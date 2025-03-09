@@ -39,9 +39,9 @@ DBNAME = DGA
 DBUSER = root
 DBPASSWD = password
 TOKEN_ACCESS_KEY = myprivatekey
-TOKEN_ACCESS_EXPIRATION_SECS = 3600
+TOKEN_ACCESS_EXPIRATION_SECS = 36000
 TOKEN_REFRESH_KEY = myprivaterefreshkey
-TOKEN_REFRESH_EXPIRATION_SECS = 86400
+TOKEN_REFRESH_EXPIRATION_SECS = 864000
 ```
 
 **DBUSER** skal ændres til det brugernavn du logger ind i MySQL med. Default er "root".
